@@ -34,7 +34,7 @@ def binarySearch(l: list, c: int) -> int:
             R: int = M
     return -1
 
-def maxHeap(l: list, n: int, i: int) -> list:
+def maxHeap(l: list, n: int, i: int):
     largest: int = i
     left: int = i*2+1
     right: int = i*2+2
@@ -45,13 +45,12 @@ def maxHeap(l: list, n: int, i: int) -> list:
         largest: int = right
     if largest != i:
         l[largest], l[i] = l[i], l[largest]
-        l: list = maxHeap(l, n, largest)
-    return l
+        maxHeap(l, n, largest)
 
 def heapSort(l: list) -> list:
     n: int = len(l)
     for i in range(n // 2 - 1, -1, -1):
-        l: list = maxHeap(l, n, i)
+        maxHeap(l, n, i)
     for i in range(n-1, 0, -1):
         l[0], l[i] = l[i], l[0]
         maxHeap(l, i, 0)
@@ -64,14 +63,13 @@ def check(l: list) -> bool:
     return True
 
 def heapSortOptimized(l: list) -> list:
-    n: int = len(l)
+    if check(l):
+        return l
     L: int = 0
     R: int = n - 1
     while L < R:
-        if l[L] > l[R]:
+        if l[L] < l[R]:
             l[L], l[R] = l[R], l[L]
         L += 1
         R -= 1
-    if check(l):
-        return l
     return heapSort(l)
