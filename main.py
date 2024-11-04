@@ -66,7 +66,7 @@ def heapSortOptimized(l: list) -> list:
     if check(l):
         return l
     L: int = 0
-    R: int = n - 1
+    R: int = len(l) - 1
     while L < R:
         if l[L] < l[R]:
             l[L], l[R] = l[R], l[L]

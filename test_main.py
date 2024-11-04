@@ -60,16 +60,16 @@ class TestMain(unittest.TestCase):
         
     def test_heapSortOptimized(self):
         l: list = [1,2,3,4,5,6,7,8,9,10]
-        self.assertEqual(main.heapSort(l), l)
+        self.assertEqual(main.heapSortOptimized(l), l)
         
         l: list = [10,9,8,7,6,5,4,3,2,1]
-        self.assertEqual(main.heapSort(l), [1,2,3,4,5,6,7,8,9,10])
+        self.assertEqual(main.heapSortOptimized(l), [1,2,3,4,5,6,7,8,9,10])
         
         l: list = [4,5,8,7,1,8,-1,-5,-3]
-        self.assertEqual(main.heapSort(l), [-5,-3,-1,1,4,5,7,8,8])
+        self.assertEqual(main.heapSortOptimized(l), [-5,-3,-1,1,4,5,7,8,8])
         
         l: list = [1,2,3,4,5,6,6,6,7,7,8,9,10]
-        self.assertEqual(main.heapSort(l), l)
+        self.assertEqual(main.heapSortOptimized(l), l)
     
 if __name__ == "__main__":
     unittest.main()
